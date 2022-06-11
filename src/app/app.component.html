@@ -1,0 +1,60 @@
+<h1>{{ title }}</h1>
+<p *ngIf="showPara1">{{ paratext1 }}</p>
+<p *ngIf="showPara2">{{ paratext2 }}</p>
+<p *ngIf="showPara3">{{ paratext3 }}</p>
+
+<button mat-button (click)="hidePara()">{{ btnText }}</button>
+
+<ul>
+  <li *ngFor="let car of cars" (click)="selectCar(car)">{{ car }}</li>
+</ul>
+
+<div [ngSwitch]="choice">
+  <p *ngSwitchCase="'Audi'">Buy Audi</p>
+  <p *ngSwitchCase="'BMW'">Buy BMW</p>
+  <p *ngSwitchCase="'Corvette'">Buy Corvette</p>
+  <p *ngSwitchCase="'Honda'">Buy Honda</p>
+
+  <p *ngSwitchDefault>Invalid Car Selected</p>
+
+  <!--ngIf-->
+  <h1 *ngIf="value; then trueBlock; else falseBlock">Hi Mister True Block</h1>
+  <ng-template #trueBlock
+    ><h1>Hi Mister true {{ username }}</h1>
+  </ng-template>
+  <ng-template #falseBlock
+    ><h1>Hi Mister false {{ username }}</h1>
+  </ng-template>
+</div>
+
+<!--ngFor-->
+<div *ngFor="let x of cities; index as i">
+  <h4>{{ i + 1 }}. {{ x }}</h4>
+</div>
+<br />
+<div *ngFor="let y of cities; first as f; index as i">
+  <h4>{{ i + 1 }}.{{ y }} is {{ f }}</h4>
+</div>
+<br />
+<div *ngFor="let z of cities; index as i; last as l">
+  <h4>{{ i + 1 }}.{{ z }} is {{ l }}</h4>
+</div>
+<br />
+<div *ngFor="let z of cities; index as i; even as e">
+  <h4>{{ i + 1 }}.{{ z }} is {{ e }}</h4>
+</div>
+<br />
+<div *ngFor="let z of cities; index as i; odd as o">
+  <h4>{{ i + 1 }}.{{ z }} is {{ o }}</h4>
+</div>
+<br />
+
+<!--ngSwitch-->
+<div [ngSwitch]="Choice">
+  <div class="switchCase">
+    <div *ngSwitchCase="'one'"><h1>First Block</h1></div>
+    <div *ngSwitchCase="'two'"><h1>Second Block</h1></div>
+    <div *ngSwitchCase="'three'"><h1>Third Block</h1></div>
+    <div *ngSwitchCaseDefault><h1>Invalid Choice</h1></div>
+  </div>
+</div>
